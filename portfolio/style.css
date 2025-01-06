@@ -1,0 +1,325 @@
+*{
+    font-family: "Montserrat", serif;
+}
+
+body {
+    margin: 0;
+    background-color: #000000;
+    color: #333;
+    font-family: "Montserrat", serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    top: 0;
+    z-index: 1000; 
+    border-bottom: #fff 2px solid;
+    box-shadow: 0 -2px 10px #fff;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.linkBody {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.linkBody::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 5px;
+    bottom: -4px;
+    transform: scaleX(0);
+    transition: all 0.6s ease;
+}
+
+.linkBody:hover::before {
+    transform: scaleX(1); 
+}
+
+/* Link da nav */
+.link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 0.5rem;
+    position: relative;
+}
+
+.link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 5px;
+    bottom: -8px;
+    transform: scaleX(0);
+    transition: all 0.6s ease;
+}
+
+.link:hover::before {
+    transform: scale(1.1);
+}
+
+main {
+    padding-top: 80px; /* Espaço para a nav fixa */
+    text-align: center;
+}
+
+section {
+    display: flex;
+    flex-direction: row; 
+    align-items: center; 
+    padding: 2rem;
+    background-color: #7bfdd4;
+    margin: 1rem;
+    background-color: rgb(0, 0, 0); 
+    color: rgb(123, 253, 212);
+    padding: 32px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 20px; 
+    transition: transform 0.3s ease; 
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.foto:hover {
+    transform: scale(1.1); /* Aumenta a imagem em 10% */
+}
+
+
+
+.interface {
+    max-width: 1200px; /* Limit width for larger screens */
+    margin: 0 auto; /* Center footer content */
+    padding: 0 1rem; /* Add side padding */
+}
+
+.line-footer {
+    display: flex;
+    justify-content: space-between; /* Space between logo and social buttons */
+    align-items: center; /* Center vertically */
+}
+
+.logo-footer img {
+    height: 50px; /* Adjust logo size */
+    transition: transform 0.3s ease; 
+}
+
+.logo-footer img:hover {
+    transform: scale(1.1); /* Hover effect on logo */
+}
+
+.btn-social a {
+    margin: 0 0.5rem; /* Space between buttons */
+}
+
+.btn-social button {
+    background-color: transparent; /* Fundo transparente */
+    border: none; /* Remove a borda padrão */
+    color: rgb(123, 253, 212); /* Cor do texto */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    border:0;
+    font-size: 1.5rem; /* Ajusta o tamanho do ícone */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição suave */
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-social button:hover {
+    box-shadow: 0 0 20px #7bfdd4; /* Efeito de sombra ao passar o mouse */
+    transform: scale(1.05); /* Aumenta o botão em 5% */
+}
+
+
+.borda {
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    margin-top: 1rem; /* Space between lines */
+    padding-top: 1rem; /* Space for text */
+}
+
+.borda p {
+    margin: 0; /* Remove default margin */
+}
+
+
+.card {
+    color:#fff;
+    border-radius: 10px;
+     /* Remover padding para melhor ajuste */
+    margin: 10px;
+    transition: box-shadow 0.3s ease;
+    width: 200px; /* Largura fixa para todos os cards */
+    height: 300px; /* Altura fixa para todos os cards */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Organiza o conteúdo verticalmente */
+}
+
+.card-img {
+    width: 100%;            /* Faz a imagem ocupar toda a largura do card */
+    max-height: 150px;     /* Limita a altura máxima da imagem */
+    object-fit: contain;    /* Mantém a proporção da imagem */
+    border-radius: 10px 10px 0 0; /* Arredonda a parte superior da imagem */
+    aspect-ratio: 3/2;
+}
+
+
+.card:hover {
+    box-shadow: 0 0 20px #7bfdd4;
+    transform: scale(1.05);
+}
+
+.carac.card {
+    text-align: left;
+    padding: 20px; /* Ajuste o valor conforme necessário */
+    border-radius: 10px; /* Se você quiser bordas arredondadas */
+     /* Cor de fundo para destacar o card */
+}
+.card p{
+    font-size: 10px;
+}
+.projetos {
+    display: flex;                    /* Ativa o Flexbox */
+    flex-wrap: wrap;                 /* Permite que os cards quebrem para a linha seguinte, se necessário */
+    justify-content: center;          /* Centraliza os cards horizontalmente */
+    align-items: flex-start;         /* Alinha os cards no topo (pode ser alterado conforme necessário) */
+    padding: 20px;                   /* Espaçamento interno */
+}
+    
+.btn-contato {
+    position: absolute; 
+    top: 9px; 
+    right: 20px;
+    z-index: 1000; 
+}
+
+.btn-contato button {
+    background-color: #7bfdd4; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 500px; /* Arredondar os cantos do botão */
+    border: 0;
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+}
+
+.btn-contato button:hover {
+    box-shadow: 0 0 20px #7bfdd4;
+    transform: scale(1.05); /* Cor de fundo ao passar o mouse */
+}
+section.sobre{
+    padding: 40px 4%;
+}
+
+section.sobre .flex{
+    align-items: center;
+    gap:60px;
+}
+
+.sobre .txt-sobre{
+    color: #fff;
+
+}
+.sobre .txt-sobre h2{
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 30px;
+}
+
+.sobre .txt-sobre p{
+    margin: 10px 0;
+    text-align: justify;
+}
+.sobre .flex {
+    display: flex; /* Garante que os itens sejam dispostos em linha */
+    align-items: center; /* Alinha verticalmente ao centro */
+    gap: 20px; /* Ajuste o espaço entre a imagem e o texto conforme necessário */
+}
+
+.img-sobre img {
+    width: 350px; /* Ajuste o tamanho da imagem se necessário */
+    border-radius: 10px; /* Se quiser bordas arredondadas */
+    border: 2px solid #7bfdd4; /* Corrigido para definir estilo, largura e cor */
+
+}
+.sobre span{
+    color:#8b0f99;
+    display: block;
+    
+}
+span{
+    color:#8b0f99;
+}
+.apresentacao {
+    background-color: #000; /* Cor de fundo */
+    color: #7bfdd4; /* Cor do texto */
+    padding: 40px; /* Espaçamento interno */
+    display: flex; /* Utiliza Flexbox para alinhar os itens */
+    justify-content: center; /* Centraliza o conteúdo */
+}
+
+.container {
+    display: flex; /* Utiliza Flexbox para o texto e a imagem */
+    align-items: center; /* Alinha verticalmente */
+    max-width: 1200px; /* Largura máxima da seção */
+    width: 100%; /* Largura total */
+}
+
+.texto {
+    flex: 1; /* Permite que o texto ocupe espaço flexível */
+    margin-right: 20px; /* Espaçamento entre o texto e a imagem */
+    color: white;
+}
+
+.foto {
+    width: 200px; /* Largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 50%; /* Arredonda a imagem */
+    margin-left: 20px; 
+    transition: transform 0.3s ease; /* Transição suave para hover */
+}
+
+.foto:hover {
+    transform: scale(1.1); /* Aumenta a imagem em 10% ao passar o mouse */
+}
+
+/* Animação de entrada e saída */
+.animacao-foto {
+    opacity: 0;  /* Inicia invisível */
+    transform: translateY(100px);  /* Desloca para baixo */
+    transition: all 0.8s ease-in-out;
+}
+
+.animacao-foto.entrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animacao-foto.sair {
+    opacity: 0;
+    transform: translateY(100px);
+}
