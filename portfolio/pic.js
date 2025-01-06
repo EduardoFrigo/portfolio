@@ -14,3 +14,12 @@ const observer = new IntersectionObserver(entries => {
 const foto = document.querySelector('.img-sobre .foto');
 foto.classList.add('animacao-foto');
 observer.observe(foto);
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navUl = document.querySelector('nav ul');
+
+    mobileMenuBtn.addEventListener('click', function() {
+        navUl.classList.toggle('show');
+    });
+});
