@@ -389,8 +389,6 @@ h1.titulo-principal {
 }
 
 
-
-
 .titulo-principal:after {
     content: '|';
     margin-left: 5px;
@@ -409,3 +407,32 @@ h1.titulo-principal {
         opacity: 0;
     }
 }
+
+.outras-linguagens {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.lista-linguagens {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1000px; /* Define a largura máxima */
+    width: 100%; /* Faz com que ocupe toda a largura disponível */
+    gap: 10px; /* Espaço fixo entre os itens */
+    color: #fff;
+}
+
+.lista-linguagens li {
+    flex: 1; /* Itens têm tamanhos iguais */
+    text-align: center; /* Centraliza o texto dentro de cada item */
+}
+.lista-linguagens li:hover {
+    flex: 1; /* Itens têm tamanhos iguais */
+    text-align: center; /* Centraliza o texto dentro de cada item */
+    text-shadow: 0 0 25px #7bfdd4;
+    transform: scale(1.05);
+}
+
