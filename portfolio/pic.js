@@ -23,3 +23,26 @@ document.addEventListener('DOMContentLoaded', function() {
         navUl.classList.toggle('show');
     });
 });
+
+
+function typeWrite(elemento) {
+    const textoArray = elemento.innerHTML; // Obtém todo o conteúdo, incluindo as tags HTML.
+    elemento.innerHTML = ''; // Limpa o conteúdo do elemento.
+
+    let i = 0;
+
+    function escrever() {
+        // Adiciona o próximo caractere ao HTML do elemento.
+        elemento.innerHTML = textoArray.slice(0, i);
+        i++;
+
+        if (i <= textoArray.length) {
+            setTimeout(escrever, 55); // Ajuste o tempo para acelerar ou desacelerar o efeito.
+        }
+    }
+
+    escrever(); // Inicia o efeito.
+}
+
+const titulo = document.querySelector('.titulo-principal');
+typeWrite(titulo);
