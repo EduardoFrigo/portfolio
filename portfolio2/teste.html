@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eduardo Frigo — Portfólio</title>
+  <meta name="description" content="Portfólio responsivo no visual Frutiger Aero (anos 2000): gradientes aquosos, vidro brilhante e nature vibes." />
+
+  <!-- Ícones -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    :root{
+      --bg-sky: radial-gradient(1200px 600px at 20% -10%, #eaffff 0%, #b7f0ff 35%, #7dd9ff 60%, #a0ffd4 95%);
+      --glass: rgba(255,255,255,.55);
+      --stroke: rgba(255,255,255,.85);
+      --tint: rgba(255,255,255,.28);
+      --ink: #053a4e;
+      --ink-soft:#0e566f;
+      --aqua-1:#00c6ff;
+      --aqua-2:#00ff88;
+      --leaf:#5de35d;
+      --sun:#ffe566;
+      --shadow: 0 10px 30px rgba(0,0,0,.2);
+      --radius: 22px;
+    }
+
+    /* Reset minimalista */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink); font: 500 16px/1.6 "Trebuchet MS", Segoe UI, Tahoma, Verdana, Arial, sans-serif;
+      background: var(--bg-sky), linear-gradient(180deg,#dff9ff, #bdf0ff 40%, #c9ffd6);
+      overflow-x:hidden;
+    }
+
+    /* Fundo com nuvens e bolhas ao estilo Frutiger Aero */
+    .aero-bg::before,
+    .aero-bg::after{
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:-1;
+      background-repeat: no-repeat;
+    }
+    /* nuvens soft */
+    .aero-bg::before{
+      background-image:
+        radial-gradient(180px 60px at 10% 18%, rgba(255,255,255,.9) 10%, rgba(255,255,255,0) 70%),
+        radial-gradient(220px 70px at 35% 22%, rgba(255,255,255,.9) 10%, rgba(255,255,255,0) 70%),
+        radial-gradient(240px 80px at 70% 18%, rgba(255,255,255,.92) 10%, rgba(255,255,255,0) 70%),
+        radial-gradient(200px 70px at 85% 26%, rgba(255,255,255,.88) 10%, rgba(255,255,255,0) 70%);
+      filter: blur(4px) saturate(110%);
+    }
+    /* bolhas aquosas */
+    .aero-bg::after{
+      background-image:
+        radial-gradient(120px 120px at 12% 78%, rgba(255,255,255,.85) 10%, rgba(255,255,255,0) 60%),
+        radial-gradient(90px 90px at 35% 85%, rgba(255,255,255,.75) 10%, rgba(255,255,255,0) 60%),
+        radial-gradient(150px 150px at 78% 80%, rgba(255,255,255,.8) 10%, rgba(255,255,255,0) 60%);
+      mix-blend-mode: screen;
+      animation: floatBubbles 16s ease-in-out infinite;
+    }
+    @keyframes floatBubbles{
+      0%,100%{transform: translateY(0)}
+      50%{transform: translateY(-14px)}
+    }
+
+    /* Navbar vidro glossy */
+    .nav{
+      position:sticky; top:0; z-index:20; backdrop-filter: blur(10px) saturate(120%);
+      background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(255,255,255,.35));
+      border-bottom: 1px solid rgba(255,255,255,.7);
+      box-shadow: 0 4px 18px rgba(0,0,0,.12);
+    }
+    .container{max-width:1180px; margin-inline:auto; padding:0 18px}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:66px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
+    .brand i{font-size:22px; color:var(--aqua-1)}
+    .nav ul{list-style:none; display:flex; gap:14px; margin:0; padding:0}
+    .nav a{display:inline-block; padding:8px 14px; border-radius:999px; text-decoration:none; color:var(--ink);
+      background: linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.4));
+      border:1px solid rgba(255,255,255,.8); box-shadow: inset 0 1px 0 var(--stroke);
+    }
+    .nav a:hover{box-shadow: inset 0 1px 0 var(--stroke), 0 6px 14px rgba(0,0,0,.12)}
+
+    /* Hero com botão gelatinoso */
+    .hero{position:relative; padding: 96px 0 56px}
+    .hero-grid{display:grid; grid-template-columns: 1.1fr .9fr; gap:34px; align-items:center}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; font-size:14px;
+      background: linear-gradient(180deg, #fff, rgba(255,255,255,.5)); border:1px solid var(--stroke);
+      box-shadow: inset 0 1px 0 var(--stroke), var(--shadow);
+    }
+    .title{font-size: clamp(32px, 6vw, 56px); line-height:1.05; margin:16px 0 10px; font-weight:800; letter-spacing:.2px}
+    .subtitle{font-size: clamp(16px, 2.6vw, 20px); color: var(--ink-soft); max-width: 60ch}
+
+    .cta{display:flex; gap:12px; margin-top:26px; flex-wrap:wrap}
+    .btn{
+      position:relative; isolation:isolate; border:none; cursor:pointer; border-radius: 18px; padding:12px 18px;
+      font-weight:700; letter-spacing:.3px; color:#003c2a;
+      background: linear-gradient(180deg, #b8ffe7, #70ffd1 55%, #4fffbf);
+      box-shadow: inset 0 1px 0 #fff, 0 10px 22px rgba(0, 176, 120, .35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn::after{
+      content:""; position:absolute; inset:2px 2px auto 2px; height:48%; border-radius:16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,0));
+      pointer-events:none;
+    }
+    .btn:hover{transform: translateY(-2px); box-shadow: inset 0 1px 0 #fff, 0 16px 26px rgba(0,176,120,.45)}
+    .btn.alt{color:#01243b; background: linear-gradient(180deg, #dff6ff, #9be0ff 60%, #66d1ff); box-shadow: inset 0 1px 0 #fff, 0 10px 22px rgba(0,120,176,.35)}
+
+    /* Cartões vidro brilhante */
+    .section{padding:60px 0}
+    .section h2{font-size: clamp(22px, 3.6vw, 34px); margin:0 0 22px; font-weight:800}
+    .muted{color:var(--ink-soft)}
+
+    .grid{display:grid; gap:18px}
+    .grid.cards{grid-template-columns: repeat(auto-fit, minmax(240px,1fr))}
+
+    .card{
+      background: linear-gradient(180deg, var(--glass), rgba(255,255,255,.35));
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding:18px; box-shadow: var(--shadow);
+      position:relative; overflow:hidden;
+    }
+    .card::before{content:""; position:absolute; inset:0; background: radial-gradient(200px 80px at 10% -10%, rgba(255,255,255,.9), rgba(255,255,255,0)); opacity:.7}
+    .card h3{margin:8px 0 6px}
+
+    .skill-badges{display:flex; flex-wrap:wrap; gap:10px}
+    .badge-pill{padding:8px 12px; border-radius:999px; font-weight:700; font-size:14px;
+      background: linear-gradient(180deg, #eaffff, #c8f7ff 60%, #b0eeff);
+      border:1px solid var(--stroke); box-shadow: inset 0 1px 0 #fff, 0 6px 14px rgba(0,0,0,.08);
+    }
+
+    /* Projetos */
+    .project-thumb{aspect-ratio:16/9; border-radius:16px; overflow:hidden; border:1px solid var(--stroke);
+      background: linear-gradient(180deg,#eefcff,#c8f8ff); display:grid; place-items:center; position:relative}
+    .project-thumb svg{width:60%; height:auto; opacity:.9}
+    .chip{display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px;
+      background: linear-gradient(180deg, #fff, rgba(255,255,255,.55)); border:1px solid var(--stroke);
+      box-shadow: inset 0 1px 0 #fff; position:absolute; top:10px; left:10px}
+
+    .card .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .link{
+      text-decoration:none; font-weight:800; color:#064c79; padding:8px 12px; border-radius:12px;
+      background: linear-gradient(180deg, #e9f6ff, #cfeeff); border:1px solid var(--stroke);
+    }
+
+    /* Sobre */
+    .about{display:grid; grid-template-columns: 1.1fr .9fr; gap:24px; align-items:center}
+    .portrait{
+      border-radius: 20px; border: 2px solid var(--stroke); overflow:hidden; box-shadow: var(--shadow);
+      background: linear-gradient(180deg, #eaffff, #c9ffea);
+    }
+    .portrait::after{content:""; display:block; padding-top:75%}
+
+    /* Rodapé */
+    footer{padding:40px 0 80px; text-align:center; color:var(--ink-soft)}
+    .social{display:flex; justify-content:center; gap:12px; margin:10px 0}
+    .social a{width:42px; height:42px; display:grid; place-items:center; border-radius:50%;
+      background: linear-gradient(180deg,#fff,rgba(255,255,255,.5)); border:1px solid var(--stroke); color:#0b5c79}
+
+    /* Responsividade */
+    @media (max-width: 980px){
+      .hero-grid, .about{grid-template-columns: 1fr}
+    }
+
+    /* Motion safe */
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important}
+    }
+  </style>
+</head>
+<body class="aero-bg">
+
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <i class="bi bi-cloud-sun"></i> <span>Eduardo<span style="color:#08a87a">.dev</span></span>
+      </a>
+      <ul>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge"><i class="bi bi-stars"></i> Portfólio Frutiger Aero</span>
+        <h1 class="title">Olá, eu sou <span style="color:#088f6a">Eduardo Frigo</span> — <br>Web Developer</h1>
+        <p class="subtitle">Construo experiências web rápidas e agradáveis, misturando backend sólido com interfaces polidas. Curioso por infra Linux e banco de dados, apaixonado por UI com aquele brilho nostálgico dos anos 2000 ✨.</p>
+        <div class="cta">
+          <a class="btn" href="#projetos"><i class="bi bi-rocket-takeoff"></i> Ver projetos</a>
+          <a class="btn alt" href="#contato"><i class="bi bi-chat-dots"></i> Falar comigo</a>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="padding:0; overflow:hidden">
+          <div class="project-thumb" aria-hidden="true">
+            <span class="chip"><i class="bi bi-activity"></i> Live preview</span>
+            <!-- SVG decorativa estilo Aero -->
+            <svg viewBox="0 0 500 300" role="img" aria-label="Gráfico decorativo aqua">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#a7f7ff"/>
+                  <stop offset="60%" stop-color="#69e7ff"/>
+                  <stop offset="100%" stop-color="#b7ffe9"/>
+                </linearGradient>
+                <linearGradient id="g2" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#66d1ff"/>
+                  <stop offset="100%" stop-color="#4fffbf"/>
+                </linearGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <rect x="0" y="0" width="500" height="300" fill="url(#g1)" rx="20"/>
+              <path d="M0,220 C80,160 160,260 240,200 C320,140 400,240 500,180 L500,300 L0,300 Z" fill="url(#g2)" opacity=".9" filter="url(#glow)"/>
+              <circle cx="90" cy="70" r="18" fill="#fff" opacity=".9"/>
+              <circle cx="110" cy="70" r="22" fill="#fff" opacity=".9"/>
+              <circle cx="132" cy="72" r="16" fill="#fff" opacity=".9"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2>Minhas <span style="color:#0aa37a">Skills</span></h2>
+      <p class="muted">Stack principal e ferramentas que uso no dia a dia.</p>
+      <div class="grid cards">
+        <article class="card">
+          <h3><i class="bi bi-code-slash"></i> Front-end</h3>
+          <p>HTML semântico, CSS moderno (flex, grid), JS moderno (ES6+). Componentização, acessibilidade e performance.</p>
+          <div class="skill-badges">
+            <span class="badge-pill">HTML</span>
+            <span class="badge-pill">CSS</span>
+            <span class="badge-pill">JavaScript</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3><i class="bi bi-database"></i> Back-end</h3>
+          <p>PHP e Python para APIs e páginas dinâmicas. Integração com bancos relacionais e autenticação.</p>
+          <div class="skill-badges">
+            <span class="badge-pill">PHP</span>
+            <span class="badge-pill">Python</span>
+            <span class="badge-pill">REST</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3><i class="bi bi-server"></i> Infra & DB</h3>
+          <p>Linux, Apache/Nginx, MySQL/MariaDB/SQLite, automação simples com Bash.</p>
+          <div class="skill-badges">
+            <span class="badge-pill">Linux</span>
+            <span class="badge-pill">MySQL</span>
+            <span class="badge-pill">Bash</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3><i class="bi bi-git"></i> Versionamento</h3>
+          <p>Fluxos Git, Pull Requests e boas práticas de colaboração.</p>
+          <div class="skill-badges">
+            <span class="badge-pill">Git</span>
+            <span class="badge-pill">GitHub</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos" class="section">
+    <div class="container">
+      <h2>Projetos <span style="color:#0aa37a">em Destaque</span></h2>
+      <div class="grid cards">
+        <article class="card">
+          <div class="project-thumb">
+            <span class="chip"><i class="bi bi-boxes"></i> PHP</span>
+            <!-- placeholder gráfico -->
+            <svg viewBox="0 0 400 225" aria-hidden="true">
+              <defs>
+                <linearGradient id="p1" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#c9f7ff"/>
+                  <stop offset="100%" stop-color="#9df5da"/>
+                </linearGradient>
+              </defs>
+              <rect width="400" height="225" fill="url(#p1)"/>
+              <g fill="#fff" opacity=".9">
+                <circle cx="70" cy="60" r="14"/>
+                <circle cx="88" cy="60" r="18"/>
+                <circle cx="110" cy="62" r="12"/>
+              </g>
+            </svg>
+          </div>
+          <h3>Farmácia Frigo</h3>
+          <p>Projeto inicial em PHP procedural, CRUD e listagens com foco em aprendizado de back-end.</p>
+          <div class="actions">
+            <a class="link" href="#">Repositório</a>
+            <a class="link" href="#">Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="project-thumb">
+            <span class="chip"><i class="bi bi-clipboard-data"></i> Gestão</span>
+            <svg viewBox="0 0 400 225" aria-hidden="true">
+              <rect width="400" height="225" fill="#dffbff"/>
+              <path d="M0 190 C 60 170, 120 210, 180 185 C 240 160, 300 210, 400 180 L 400 225 L 0 225 Z" fill="#b0f7e5"/>
+            </svg>
+          </div>
+          <h3>Vidraçaria H. de Luca</h3>
+          <p>Sistema simples para clientes e estoque. Páginas leves e responsivas, com foco em utilidade.</p>
+          <div class="actions">
+            <a class="link" href="#">Repositório</a>
+            <a class="link" href="#">Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="project-thumb">
+            <span class="chip"><i class="bi bi-graph-up-arrow"></i> Analytics</span>
+            <svg viewBox="0 0 400 225" aria-hidden="true">
+              <rect width="400" height="225" fill="#e6fcff"/>
+              <polyline points="20,180 120,140 200,160 280,110 380,130" fill="none" stroke="#21cba6" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Dashboard Aqua</h3>
+          <p>UI inspirado no Aero para painéis rápidos: gráficos SVG e interações suaves.</p>
+          <div class="actions">
+            <a class="link" href="#">Repositório</a>
+            <a class="link" href="#">Demo</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="section">
+    <div class="container about">
+      <div class="card">
+        <h3>Sobre mim</h3>
+        <p>Sou de Criciúma-SC, curso Engenharia de Software e gosto de construir aplicações web com foco em clareza e performance. Curto Linux, bancos relacionais e um bom layout com cara de sistema clássico, só que rápido.</p>
+        <p class="muted">Quando não estou codando, estou ouvindo música, vendo futebol e brincando com automação em Bash.</p>
+      </div>
+      <div class="portrait" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="container">
+      <h2>Contato <span style="color:#0aa37a">/ Vamos conversar</span></h2>
+      <div class="grid cards" style="grid-template-columns: 1.2fr .8fr;">
+        <form class="card" onsubmit="handleSubmit(event)">
+          <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px">
+            <label>
+              <span>Nome</span>
+              <input name="nome" required placeholder="Seu nome" />
+            </label>
+            <label>
+              <span>E-mail</span>
+              <input type="email" name="email" required placeholder="voce@exemplo.com" />
+            </label>
+          </div>
+          <label style="display:block; margin-top:12px">
+            <span>Mensagem</span>
+            <textarea name="msg" rows="4" required placeholder="Como posso ajudar?"></textarea>
+          </label>
+          <div style="margin-top:12px">
+            <button class="btn" type="submit"><i class="bi bi-send"></i> Enviar</button>
+          </div>
+        </form>
+        <aside class="card">
+          <h3><i class="bi bi-envelope-fill"></i> Me encontre</h3>
+          <p class="muted">Prefere redes? Só chamar:</p>
+          <div class="social">
+            <a href="https://github.com/EduardoFrigo" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/eduardo-frigo-289400283/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://twitter.com/oo_frigo" aria-label="Twitter X"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.instagram.com/oo_frigo/" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="mailto:eduardosfrigo@gmail.com" aria-label="E-mail"><i class="bi bi-envelope"></i></a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Eduardo Frigo. Feito com ❤ e brilho aqua.</p>
+    </div>
+  </footer>
+
+  <script>
+    // pequeno script para ano e feedback do form
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function handleSubmit(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      alert(`Valeu, ${data.nome}! Já recebi sua mensagem.`);
+      e.target.reset();
+    }
+
+    // Acessibilidade: focos visíveis ao estilo Aero
+    const focusCss = document.createElement('style');
+    focusCss.textContent = `
+      a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+        outline: 3px solid #66d1ff; outline-offset: 2px; border-radius: 10px;
+        box-shadow: 0 0 0 4px rgba(102,209,255,.25);
+      }
+      input, textarea{width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.9);
+        background: linear-gradient(180deg,#ffffff,#f2ffff); box-shadow: inset 0 1px 0 #fff, 0 6px 14px rgba(0,0,0,.08);
+        color:#053a4e; font: inherit;
+      }
+      label span{display:block; font-weight:800; margin-bottom:6px}
+    `;
+    document.head.appendChild(focusCss);
+  </script>
+</body>
+</html>
